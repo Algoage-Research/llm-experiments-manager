@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  main:
+    image: python:3.11.3-bullseye
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+      - .credential.env
+  viewer:
+    build: ./viewer
+    ports:
+      - 8501:8501
+    volumes:
+      - ./viewer:/app
+    depends_on:
+      - mongo
+    working_dir: /app
+    command: sh -c 'pip install -r requirements.txt && streamlit run app.py --server.port=8501 --server.address=0.0.0.0'
+  mongo:
+    image: mongo:5.0.5
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    

@@ -1,0 +1,5 @@
+.venv
+data
+tmp*
+*credential*
+__pycache__

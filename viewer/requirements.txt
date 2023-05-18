@@ -1,0 +1,5 @@
+streamlit==1.22.0
+pandas==2.0.1
+altair==4.2.2
+pymongo==4.3.3
+streamlit-chat==0.0.2.2
