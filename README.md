@@ -14,3 +14,5 @@ create `.credential.env` and write `OPENAI_API_KEY={your openai api key}`
 ## How to view the results
 
 `docker compose up viewer`
+
+open http://localhost:8501
