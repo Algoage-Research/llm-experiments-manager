@@ -69,7 +69,7 @@ class UserAgent():
 
         messages_for_openai += [
             {
-                'role': conversation_log['sender_type'] if conversation_log['sender_type'] == 'user' else 'assistant',
+                'role': 'assistant' if conversation_log['sender_type'] == 'user' else 'user', # Flip the roles since we are generating user's input.
                 'content': conversation_log['text']
             } for conversation_log in self.conversation_log
         ]
